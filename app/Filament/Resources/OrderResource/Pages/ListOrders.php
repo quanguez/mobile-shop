@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\OrderResource\Pages;
 
-use App\Enums\OrderStatusEnum;
+use App\Enums\OrderStatus;
 use App\Filament\Resources\OrderResource;
 use App\Filament\Resources\OrderResource\Widgets\OrderStats;
 use Filament\Actions;
@@ -19,21 +19,23 @@ class ListOrders extends ListRecords
             Actions\CreateAction::make(),
         ];
     }
+
     protected function getHeaderWidgets(): array
     {
         return [
             OrderStats::class,
         ];
     }
+
     public function getTabs(): array
     {
         return [
             null => Tab::make('All'),
-            'new' => Tab::make('New')->query(fn ($query) => $query->where('status', OrderStatusEnum::New)),
-            'processing' => Tab::make('Processing')->query(fn ($query) => $query->where('status', OrderStatusEnum::Processing)),
-            'shipped' => Tab::make('Shipped')->query(fn ($query) => $query->where('status', OrderStatusEnum::Shipped)),
-            'delivered' => Tab::make('Delivered')->query(fn ($query) => $query->where('status', OrderStatusEnum::Delivered)),
-            'cancelled' => Tab::make('Cancelled')->query(fn ($query) => $query->where('status', OrderStatusEnum::Cancelled)),
+            'new' => Tab::make('New')->query(fn ($query) => $query->where('status', OrderStatus::New)),
+            'processing' => Tab::make('Processing')->query(fn ($query) => $query->where('status', OrderStatus::Processing)),
+            'shipped' => Tab::make('Shipped')->query(fn ($query) => $query->where('status', OrderStatus::Shipped)),
+            'delivered' => Tab::make('Delivered')->query(fn ($query) => $query->where('status', OrderStatus::Delivered)),
+            'cancelled' => Tab::make('Cancelled')->query(fn ($query) => $query->where('status', OrderStatus::Cancelled)),
         ];
     }
 }

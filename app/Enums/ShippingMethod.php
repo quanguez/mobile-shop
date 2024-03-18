@@ -4,7 +4,7 @@ namespace App\Enums;
 
 use Filament\Support\Contracts\HasLabel;
 
-enum PaymentMethod: string implements HasLabel
+enum ShippingMethod: string implements HasLabel
 {
     case ViettelPost = 'viettel-post';
     case GHN = 'ghn';

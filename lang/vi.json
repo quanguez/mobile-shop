@@ -1,4 +1,9 @@
 {
+    "New": "Mới",
+    "Processing": "Đang thực hiện",
+    "Shipped": "Đang giao hàng",
+    "Delivered": "Đã giao hàng",
+    "Cancelled": "Đã huỷ",
     "Pending": "Chưa xử lý",
     "Paid": "Đã thanh toán",
     "Failed": "Lỗi",

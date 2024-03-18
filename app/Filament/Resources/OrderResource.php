@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Enums\OrderStatusEnum;
-use App\Enums\PaymentMethod;
+use App\Enums\OrderStatus;
+use App\Enums\ShippingMethod;
 use App\Enums\PaymentStatus;
 use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Resources\OrderResource\RelationManagers\AddressRelationManager;
@@ -68,7 +68,7 @@ class OrderResource extends Resource
                             ->inline()
                             ->default('new')
                             ->required()
-                            ->options(OrderStatusEnum::class),
+                            ->options(OrderStatus::class),
 
                         Select::make('currency')
                             ->options([
@@ -80,7 +80,7 @@ class OrderResource extends Resource
                             ->required(),
 
                         Select::make('shipping_method')
-                            ->options(PaymentMethod::class),
+                            ->options(ShippingMethod::class),
 
                         Textarea::make('notes')
                             ->columnSpanFull(),
@@ -193,16 +193,16 @@ class OrderResource extends Resource
 
                 TextColumn::make('payment_status')
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
-                        'pending' => 'warning',
-                        'paid' => 'success',
-                        'failed' => 'danger',
-                    })
-                    ->formatStateUsing(fn (string $state): string => match ($state) {
-                        'pending' => __('Pending'),
-                        'paid' => __('Paid'),
-                        'failed' => __('Failed'),
-                    })
+                    // ->color(fn (string $state): string => match ($state) {
+                    //     'pending' => 'warning',
+                    //     'paid' => 'success',
+                    //     'failed' => 'danger',
+                    // })
+                    // ->formatStateUsing(fn (string $state): string => match ($state) {
+                    //     'pending' => __('Pending'),
+                    //     'paid' => __('Paid'),
+                    //     'failed' => __('Failed'),
+                    // })
                     ->searchable()
                     ->sortable(),
 
@@ -216,7 +216,7 @@ class OrderResource extends Resource
                     ->sortable(),
 
                 SelectColumn::make('status')
-                    ->options(OrderStatusEnum::class)
+                    ->options(OrderStatus::class)
                     ->searchable()
                     ->sortable(),
 
