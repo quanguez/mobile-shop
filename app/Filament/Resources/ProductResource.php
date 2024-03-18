@@ -54,7 +54,13 @@ class ProductResource extends Resource
                             ->fileAttachmentsDirectory('products'),
                     ])->columns(2),
                     Section::make('Images')->schema([
+                        FileUpload::make('thumbnail')
+                            ->image()
+                            ->optimize('webp')
+                            ->directory('products'),
                         FileUpload::make('images')
+                            ->image()
+                            ->optimize('webp')
                             ->multiple()
                             ->directory('products')
                             ->maxFiles(5)
@@ -63,17 +69,23 @@ class ProductResource extends Resource
                 ])->columnSpan(2),
 
                 Group::make()->schema([
+                    Section::make('Stock')->schema([
+                        TextInput::make('stock')
+                            ->numeric()
+                            ->default(0)
+                            ->required(),
+                    ]),
                     Section::make('Price')->schema([
                         TextInput::make('old_price')
                             ->numeric()
                             ->default(0.00)
                             ->required()
-                            ->suffix('VND'),
+                            ->prefix('$'),
                         TextInput::make('new_price')
                             ->numeric()
                             ->default(0.00)
                             ->required()
-                            ->suffix('VND'),
+                            ->prefix('$'),
                     ]),
                     Section::make('Associations')->schema([
                         Select::make('category_id')
@@ -88,9 +100,6 @@ class ProductResource extends Resource
                             ->relationship('brand', 'name'),
                     ]),
                     Section::make('Status')->schema([
-                        Toggle::make('in_stock')
-                            ->required()
-                            ->default(true),
                         Toggle::make('is_active')
                             ->required()
                             ->default(true),
@@ -98,7 +107,6 @@ class ProductResource extends Resource
                             ->required(),
                         Toggle::make('on_sale')
                             ->required(),
-
                     ]),
                 ])->columnSpan(1),
             ])->columns(3);
@@ -115,16 +123,17 @@ class ProductResource extends Resource
                 TextColumn::make('brand.name')
                     ->sortable(),
                 TextColumn::make('old_price')
-                    ->money('VND')
+                    ->money('USD')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('new_price')
-                    ->money('VND')
+                    ->money('USD')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: false),
+                ImageColumn::make('thumbnail'),
                 ImageColumn::make('images'),
-                IconColumn::make('in_stock')
-                    ->boolean()
+                TextColumn::make('stock')
+                    ->sortable()
                     ->toggleable(isToggledHiddenByDefault: false),
                 IconColumn::make('is_active')
                     ->boolean()

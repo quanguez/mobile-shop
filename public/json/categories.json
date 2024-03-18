@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Uncategorized",
+        "slug": "uncategorized",
+        "image": "default.webp",
+        "is_active": "1"
+    },
+    {
+        "name": "Smart Phone",
+        "slug": "smart-phone",
+        "image": "categories\/mobile-phone.webp",
+        "is_active": "1"
+    },
+    {
+        "name": "Laptop",
+        "slug": "laptop",
+        "image": "categories\/laptop.webp",
+        "is_active": "1"
+    },
+    {
+        "name": "Tablet",
+        "slug": "tablet",
+        "image": "categories\/tablet.webp",
+        "is_active": "1"
+    },
+    {
+        "name": "Smart Watch",
+        "slug": "smart-watch",
+        "image": "categories\/smart-watch.webp",
+        "is_active": "1"
+    }
+]

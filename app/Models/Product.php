@@ -13,16 +13,17 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'category_id',
-        'brand_id',
+        'category_slug',
+        'brand_slug',
         'name',
         'slug',
+        'thumbnail',
         'images',
         'description',
         'new_price',
         'old_price',
         'is_active',
-        'in_stock',
+        'stock',
         'on_sale',
     ];
     protected $casts = [
@@ -31,12 +32,12 @@ class Product extends Model
 
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_slug', 'slug');
     }
 
     public function brand(): BelongsTo
     {
-        return $this->belongsTo(Brand::class);
+        return $this->belongsTo(Brand::class, 'brand_slug', 'slug');
     }
 
     public function orders(): BelongsToMany

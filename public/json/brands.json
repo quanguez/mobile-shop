@@ -1,0 +1,50 @@
+[
+    {
+        "name": "No brand",
+        "slug": "no-brand",
+        "image": "default.webp",
+        "is_active": "1"
+    },
+    {
+        "name": "Apple",
+        "slug": "apple",
+        "image": "brands\/apple_logo.webp",
+        "is_active": "1"
+    },
+    {
+        "name": "Samsung",
+        "slug": "samsung",
+        "image": "brands\/samsung_logo.webp",
+        "is_active": "1"
+    },
+    {
+        "name": "Xiaomi",
+        "slug": "xiaomi",
+        "image": "brands\/xiaomi_logo.webp",
+        "is_active": "1"
+    },
+    {
+        "name": "Huawei",
+        "slug": "huawei",
+        "image": "brands\/huawei_logo.webp",
+        "is_active": "1"
+    },
+    {
+        "name": "OPPO",
+        "slug": "oppo",
+        "image": "brands\/oppo_logo.webp",
+        "is_active": "1"
+    },
+    {
+        "name": "Microsoft Surface",
+        "slug": "microsoft-surface",
+        "image": "brands\/microsoft_logo.webp",
+        "is_active": "1"
+    },
+    {
+        "name": "HP",
+        "slug": "hp",
+        "image": "brands\/hp_logo.webp",
+        "is_active": "1"
+    }
+]

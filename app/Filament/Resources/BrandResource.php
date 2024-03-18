@@ -46,8 +46,9 @@ class BrandResource extends Resource
                             ->unique(Brand::class, 'slug', ignoreRecord: true)
                             ->required(),
                         FileUpload::make('image')
-                            ->preserveFilenames()
                             ->image()
+                            ->optimize('webp')
+                            ->preserveFilenames()
                             ->directory('brands'),
                         Toggle::make('is_active')
                             ->required()

@@ -42,8 +42,9 @@ class CategoryResource extends Resource
                             ->unique(Category::class, 'slug', ignoreRecord: true)
                             ->required(),
                         FileUpload::make('image')
-                            ->preserveFilenames()
                             ->image()
+                            ->optimize('webp')
+                            ->preserveFilenames()
                             ->directory('categories'),
                         Toggle::make('is_active')
                             ->required()
