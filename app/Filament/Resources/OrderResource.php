@@ -3,8 +3,8 @@
 namespace App\Filament\Resources;
 
 use App\Enums\OrderStatus;
-use App\Enums\ShippingMethod;
 use App\Enums\PaymentStatus;
+use App\Enums\ShippingMethod;
 use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Resources\OrderResource\RelationManagers\AddressRelationManager;
 use App\Models\Order;
