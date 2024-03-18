@@ -38,6 +38,7 @@ class OrderResource extends Resource
     protected static ?string $model = Order::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-bag';
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {
@@ -193,16 +194,6 @@ class OrderResource extends Resource
 
                 TextColumn::make('payment_status')
                     ->badge()
-                    // ->color(fn (string $state): string => match ($state) {
-                    //     'pending' => 'warning',
-                    //     'paid' => 'success',
-                    //     'failed' => 'danger',
-                    // })
-                    // ->formatStateUsing(fn (string $state): string => match ($state) {
-                    //     'pending' => __('Pending'),
-                    //     'paid' => __('Paid'),
-                    //     'failed' => __('Failed'),
-                    // })
                     ->searchable()
                     ->sortable(),
 

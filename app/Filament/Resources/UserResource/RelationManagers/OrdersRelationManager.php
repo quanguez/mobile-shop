@@ -67,7 +67,7 @@ class OrdersRelationManager extends RelationManager
                         ->label(__('filament-actions::edit.single.label'))
                         ->url(fn (Order $record): string => route('filament.admin.resources.orders.edit', ['record' => $record]))
                         ->color('success')
-                        ->icon('heroicon-o-eye'),
+                        ->icon('heroicon-m-pencil-square'),
                     DeleteAction::make(),
                 ]),
             ])
